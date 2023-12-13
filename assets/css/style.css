@@ -455,45 +455,13 @@
         border-radius: 5px;
         text-decoration: none;
 }
-#user_data{
-  width:100%;
-  background-color: lightseagreen;
-  padding: 20px;
 
-}
-.table_heading{
-  padding: 2rem;
-  display: flex;
-  background-color: red;
-}
-.page_data_search{
-  float: right;
-}
 
 
 
 /*create camping*/
 
-.compaing_data{
-  width:100%;
-  background-color: red;
-  padding: 1rem;
-}
-.compaing_data.camping_head{
-    float: right;
-    background: white;
-}
-.compaing_data .camping_head button{
-  height: 2rem;
-  width:1rem;
-}
-.compaing_data .camping_head button a{
-  padding: 0.2rem;
-  text-decoration: none;
-  color: lightseagreen;
-  height: 2rem;
-  width:1rem;
-}
+
 
 
 

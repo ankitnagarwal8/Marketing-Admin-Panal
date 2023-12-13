@@ -9,6 +9,10 @@ class HOME extends CI_Controller {
 	}
 	public function email_sent()
 	{
-		$this->load->view('website/email_massage');
+		$this->load->database();
+		$data = $this->db->query('select * from create_campaing');
+		$res['results'] = $data->result_array();
+
+		$this->load->view('website/email_massage',$res);
 	}
 }

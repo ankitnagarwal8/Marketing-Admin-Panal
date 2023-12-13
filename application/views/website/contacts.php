@@ -4,6 +4,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include('links.php'); ?>
+  <style type="text/css">
+    #user_data{
+      width:100%;
+/*      background-color: ;*/
+      padding: 20px;
+    }
+    .table_heading{
+      padding: 2rem;
+      display: flex;
+      background-color: white;
+    }
+    .page_data_search{
+      float: right;
+    }
+  </style>
     
 </head>
 <body>
