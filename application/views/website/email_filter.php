@@ -233,6 +233,9 @@
             height:200px;
             width: 300px;
         }
+        .hide {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -277,7 +280,7 @@
   <label for="sendStatusSelect">Send Status:</label>
   <select id="sendStatusSelect">
     <option value="">All</option>
-    <option value="">Send</option>
+    <option value="1">Send</option>
     <option value="0">Unsend</option>
   </select>
 
@@ -302,11 +305,12 @@
         $email = array();  
 
         $i = 0; foreach($results as $all){ ?>
-           <div class="element" data-category="<?php echo $all['catagary']?>" data-campaign="" data-delivery="delivered" data-status="seen" data-send-status="send" data-send-frequency="one-time"><?php $email[$i] =  $all['email'];
-                        echo $all['email'];
-                        array_push($email,$email[$i]);
-
-                        $this->session->set_userdata('multiple_emails', $email);
+           <div class="element" data-category="<?php echo $all['catagary']?>" data-campaign="" data-delivery="delivered" data-status="seen" data-send-status="send" data-send-frequency="one-time">
+            <?php 
+                $email[$i] =  $all['email'];
+                echo $all['email'];
+                array_push($email,$email[$i]);
+                $this->session->set_userdata('multiple_emails', $email);
            ?></div>
         <?php $i++; }
             
@@ -321,14 +325,17 @@
 
         $j = 0; foreach($reports as $rep){ ?>
 
-           <div class="element" data-category="<?php echo $rep['catagary']; ?>" data-campaign="<?php echo $rep['camaping']?>" data-delivery="<?php echo $rep['delivered']; ?>" data-status="<?php echo $rep['seen']; ?>" data-send-status="<?php echo $rep['sending_date']; ?>" data-send-frequency="<?php echo $rep['sending_time']; ?>">
-            <?php $email[$i] =  $all['email'];
+           <div class="element" data-category="<?php echo $rep['catagary']; ?>" data-campaign="<?php echo $rep['camaping']?>" data-delivery="<?php echo $rep['delivered']; ?>" data-status="<?php echo $rep['seen']; ?>" data-send-status="<?php echo $rep['sending_date']; ?>" data-send-frequency="<?php echo $rep['sending_time']; ?>" no-data = "no-data" class="demo" >
+            <?php 
+                $email[$i] =  $all['email'];
                 echo $rep['email'];
-            array_push($email,$email[$i]);
+                array_push($email,$email[$i]);
 
-            $this->session->set_userdata('multiple_emails', $email);
-           ?></div>
-
+                $this->session->set_userdata('multiple_emails', $email);
+           ?>
+             <p id="myP" style="display: none;">I am a pasdfasdfsph.</p>  
+           </div>
+            
         <?php $j++; } 
             
         ?>
@@ -348,8 +355,12 @@
       var messageStatus = document.getElementById('statusSelect').value;
       var sendStatus = document.getElementById('sendStatusSelect').value;
       var sendFrequency = document.getElementById('sendFrequencySelect').value;
+      // let html = document.getElementById("myP").innerHTML;
+
+     
 
       var elements = document.querySelectorAll('.element');
+      var x = document.getElementById("myDIV");
 
       elements.forEach(function(element) {
         var showElement =
@@ -362,11 +373,23 @@
 
         // Show or hide the element based on the filter criteria
         if (showElement) {
+
           element.classList.remove('hidden');
+
         } else {
+            
           element.classList.add('hidden');
         }
-      });
+            // document.write(showElement);
+        if (showElement === false) {
+            document.getElementById("myP").style.display = "block";
+        }
+
+      }
+
+
+      );
+      // document.write('no data found');
     }
 
     // Attach the filterElements function to the change event of each select tag
@@ -376,6 +399,7 @@
     document.getElementById('statusSelect').addEventListener('change', filterElements);
     document.getElementById('sendStatusSelect').addEventListener('change', filterElements);
     document.getElementById('sendFrequencySelect').addEventListener('change', filterElements);
+   
 
     // Initial filtering on page load
     filterElements();

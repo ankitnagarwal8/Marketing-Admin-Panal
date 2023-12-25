@@ -49,7 +49,7 @@ class CATAGORY extends CI_Controller {
     	$this->load->database();
 		$q = $this->db->query('select * from catagary');
 		$data['result'] = $q->result_array();
-		// $this->load->view('Admin/reports',$data);
+		// $this->load->view('Admin/reports',$data); 
   	
 		// $this->load->view('Admin/reports');
 		$this->load->view('Admin/CATAGORY',$data);

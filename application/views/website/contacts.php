@@ -49,7 +49,8 @@
           <input type='text' name='search' value='<?= $search ?>'><input type='submit' name='submit' value='Submit'>
         </form>
       </div>
-    </div>
+    
+
       <div class="table_data">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                     <thead>
