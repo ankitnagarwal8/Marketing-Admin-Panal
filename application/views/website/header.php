@@ -20,8 +20,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">Create Campaing</a></li>
-          <li><a href="#">Report</a></li>
+          <li><a href="<?= base_url('USER/DRAFTMAIL/'); ?>">Draft Mail</a></li>
+          <li><a href="<?= base_url('USER/REPORTS/'); ?>">Report</a></li>
           <li><a href="<?= base_url('USER/IMPORT_CONTACT/'); ?>">Import Contact</a></li>
           <li><a href="<?= base_url('HOME/email_sent'); ?>">Send</a></li>
           <!-- <li><a href="#">Report</a></li> -->

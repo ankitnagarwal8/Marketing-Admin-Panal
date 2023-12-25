@@ -55,7 +55,10 @@ class IMPORT_CONTACT extends CI_Controller {
 	}
 	public function DATA()
 	{
-		$this->load->view('website/email_data_import');
+		$this->load->database();
+		$qu = $this->db->query('select * from catagary');
+		$result['results']  = $qu->result_array();
+		$this->load->view('website/email_data_import',$result);
 	}
 
 	public function import($data = array()){
@@ -143,6 +146,42 @@ class IMPORT_CONTACT extends CI_Controller {
             $this->form_validation->set_message('file_check', 'Please select a CSV file to upload.');
             return false;
         }
+    }
+
+    public function EXPORT(){
+    	$storData = array();
+        $metaData[] = array('id' => 'id' ,'first_name' => 'FirstName', 'last_name' => 'LastName', 'email' => 'Email', 'mobile' => 'Mobile', 'catagary' => 'Catagary', 'date' => 'Date');       
+        $this->load->model('Member');
+        $customerInfo = $this->Member->getuserList();
+        // echo "<pre>";
+        // print_r($customerInfo);
+        // die; 
+        foreach($customerInfo as $element) {
+            $storData[] = array(
+            	'id' => $element['id'],
+                'first_name' => $element['frist_name'],
+                'last_name' => $element['last_name'],
+                'email' => $element['email'],
+                'mobile' => $element['mobile'],
+                'catagary' => $element['catagary'],
+                'date' => $element['date']
+
+            );
+            // print_r($storData);
+
+
+        }
+        $data = array_merge($metaData,$storData);
+        header("Content-type: application/csv");
+        header("Content-Disposition: attachment; filename=\"csv-sample-customer".".csv\"");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        $handle = fopen('php://output', 'w');
+        foreach ($data as $data) {
+            fputcsv($handle, $data);
+        }
+            fclose($handle);
+        exit;
     }
 	
 	}

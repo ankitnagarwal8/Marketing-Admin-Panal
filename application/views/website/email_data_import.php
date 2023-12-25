@@ -111,10 +111,10 @@
 
 			<form method="post" enctype="multipart/form-data" action="<?= base_url('USER/IMPORT_CONTACT/import'); ?>">
 				<div class="custom-select">
-					<!-- <input type="text" name="name"> -->
+					
 					<?php $options = [
     					'select'  => '--select--',
-    					'git'  => 'GitHub',
+    					'git'  => 'Git Hub',
     					'Linked'    => 'Linked in',
     					'Whatsapp'  => 'Whats App',
     					'Facebook' => 'Facebook',

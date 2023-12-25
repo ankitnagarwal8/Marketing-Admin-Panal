@@ -5,7 +5,9 @@ class HOME extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('website/index');
+		$this->load->database();
+		$data['total_email'] = $this->db->count_all('report_data');
+		$this->load->view('website/index',$data);
 	}
 	public function email_sent()
 	{

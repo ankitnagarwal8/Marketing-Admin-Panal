@@ -83,10 +83,17 @@
 	  	</div>
 	  </div>
     <div class="project_container">
-      <?php foreach ($results as $result){ ?>
+      <?php foreach ($results as $result){
+
+        $compaint_id = $result['id'];
+        // echo $compaint_id;
+        // $this->session->set_userdata('compaing_id', $compaint_id);
+
+
+        ?>
       <div class="project">
         <div class="project_name">
-          <h2><a href="<?= base_url(''); ?>"><?php echo $result['title']; ?></a></h2>
+          <h2><a href="<?= base_url('USER/PROJECTMAIL/index/'.$compaint_id); ?>"><?php echo $result['title']; ?></a></h2>
         </div>
         <div class="project_contant">
           <p><?php echo $result['contant']; ?></p>

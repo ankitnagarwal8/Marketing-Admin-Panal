@@ -112,4 +112,14 @@ class Member extends CI_Model{
  
     return $result[0]['allcount'];
   }
+
+  public function getuserList(){
+     $this->db->select(array('id', 'frist_name', 'last_name', 'email', 'mobile', 'catagary','date'));
+        $this->db->from('user_email'); 
+        if(!empty($this->_pageNumber)) {
+            $this->db->limit($this->_pageNumber, $this->_offset);
+        }
+        $query = $this->db->get();
+        return $query->result_array();
+  }
 }

@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','email','session','pagination');
+$autoload['libraries'] = array('database','email','session','pagination','upload');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Member');
+$autoload['model'] = array('Member','REPORTS_DATA','DRAFT_DATA','ADMIN/EMAIL_DATA','ADMIN/REPORTS_DATA','ADMIN/CATAGORY_DATA');

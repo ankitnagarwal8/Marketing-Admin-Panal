@@ -33,7 +33,7 @@
         <div class="deshbord_container">
           <div class="deshbord_container_items4">
               <div class="deshbord_container_items_icon"><i class="fa-solid fa-envelope icon"></i></div>
-              <div class="deshbord_container_items_data"><h2>2934</h2></div>
+              <div class="deshbord_container_items_data"><h2><?php echo $total_email; ?></h2></div>
           </div>
         </div>
     </div>

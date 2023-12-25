@@ -23,7 +23,9 @@
 </head>
 <body>
 	<?php include('header.php'); ?>
-
+  <div id="import_data">
+    <div class="data"><a href="<?= base_url('USER/IMPORT_CONTACT/EXPORT'); ?>">EXPORT DATA</a></div>
+  </div>
 	<div id="import_data">
 		<div class="data"><a href="<?= base_url('USER/IMPORT_CONTACT/DATA'); ?>">IMPORT DATA</a></div>
 	</div>
