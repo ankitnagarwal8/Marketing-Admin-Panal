@@ -266,6 +266,30 @@ class PROJECTMAIL extends CI_Controller{
 			redirect(base_url('HOME/email_sent'));
 		}
 	}
+
+	if(! function_exists('send_notification'))
+	{
+    function send_notification($userDevice,$message)
+    {
+        $CI = &get_instance();
+        $CI->load->library('fcm');
+
+        $CI->fcm->setTitle('XXXXX');
+        $CI->fcm->setMessage($message);
+        $CI->fcm->setIsBackground(false);
+        set payload as null
+        $payload = array('notification' => '');
+        $CI->fcm->setPayload($payload);
+        $CI->fcm->setImage('https://firebase.google.com/_static/9f55fd91be/images/firebase/lockup.png');
+        $json = $CI->fcm->getPush();
+        $notification = [
+            "title" => "XXXXX",
+            "body" => $message
+            ];
+        
+        $result = $CI->fcm->sendMultiple($userDevice, $$notification);
+    }
+}
 	
 
 

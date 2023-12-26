@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"phpoffice/phpspreadsheet": "*"
+		"phpoffice/phpspreadsheet": "*",
+		"kreait/firebase-php": "4.18"
 	},
 	"config": {
 		"platform": {

@@ -234,8 +234,14 @@
             width: 300px;
         }
         .hide {
-  display: none;
-}
+            display: none;
+        }
+        .error{
+            display:none;
+        }
+        .error1{
+            display:block;
+        }
   </style>
 </head>
 <body>
@@ -333,14 +339,15 @@
 
                 $this->session->set_userdata('multiple_emails', $email);
            ?>
-             <p id="myP" style="display: none;">I am a pasdfasdfsph.</p>  
+             
            </div>
-            
+             
         <?php $j++; } 
-            
+           
         ?>
         </div>
-        <button type="submit">save</button><span><?php echo $i+$j; ?></span>
+        <div class="demo">no data found</div> 
+        <button type="submit">save</button><span ><?php echo $i+$j; ?></span>
     
 </form>
 </div>
@@ -348,6 +355,10 @@
   <!-- Add more elements as needed -->
 
   <script>
+    const ele = document.querySelector('.demo');
+        ele.style.display = 'none';
+
+        var x = 0;
     function filterElements() {
       var category = document.getElementById('categorySelect').value;
       var campaign = document.getElementById('campaignSelect').value;
@@ -355,12 +366,13 @@
       var messageStatus = document.getElementById('statusSelect').value;
       var sendStatus = document.getElementById('sendStatusSelect').value;
       var sendFrequency = document.getElementById('sendFrequencySelect').value;
-      // let html = document.getElementById("myP").innerHTML;
+      
+      
 
-     
-
+       
       var elements = document.querySelectorAll('.element');
-      var x = document.getElementById("myDIV");
+
+      
 
       elements.forEach(function(element) {
         var showElement =
@@ -371,25 +383,23 @@
           (sendStatus === '' || element.dataset.sendStatus === sendStatus) &&
           (sendFrequency === '' || element.dataset.sendFrequency === sendFrequency);
 
-        // Show or hide the element based on the filter criteria
         if (showElement) {
 
           element.classList.remove('hidden');
 
         } else {
-            
+              
           element.classList.add('hidden');
         }
-            // document.write(showElement);
-        if (showElement === false) {
-            document.getElementById("myP").style.display = "block";
-        }
+      
 
       }
 
-
+     
       );
-      // document.write('no data found');
+      
+
+
     }
 
     // Attach the filterElements function to the change event of each select tag
